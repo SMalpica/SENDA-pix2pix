@@ -123,12 +123,14 @@ def __transforms2pil_resize(method):
 def __make_power_2(img, base, method=transforms.InterpolationMode.BICUBIC):
     method = __transforms2pil_resize(method)
     ow, oh = img.size
-    h = int(round(oh / base) * base)
-    w = int(round(ow / base) * base)
+    #h = int(round(oh / base) * base)
+    #w = int(round(ow / base) * base)
+    h=512
+    w=512
     if h == oh and w == ow:
         return img
 
-    __print_size_warning(ow, oh, w, h)
+    #__print_size_warning(ow, oh, w, h)
     return img.resize((w, h), method)
 
 
